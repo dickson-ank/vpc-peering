@@ -57,7 +57,7 @@ export function Step1({setSelectedImage}: Step1Props){
               • Set the IPv4 subnet CIDR block to <span className="font-mono text-primary">10.0.1.0/28</span> <br />
               • Review and <span className="text-black text-sm font-semibold px-2 py-0 bg-aws rounded-2xl">Create Subnet</span> <br />
             </Paragraph>
-            <ImageContainer className="mb-1"src="./create-public-subnet-1.jpeg" alt="Subnet create screenshot" selectedImage={setSelectedImage} />
+            <ImageContainer className="mb-1"src="./prod-public-subnet-create.jpeg" alt="production public create screenshot" selectedImage={setSelectedImage} />
             <Paragraph>
               We will follow similar procedure to create the private subnet also prod-vpc<br />
               • Name: prod-private-subnet <br />
@@ -73,7 +73,7 @@ export function Step1({setSelectedImage}: Step1Props){
               • Same AZ as prod-public-subnet <br />
               • CIDR: <span className="font-mono text-primary">192.168.1.0/24</span>
             </Paragraph>
-            <ImageContainer className="mb-1"src="./create-private-subnet.jpeg" alt="Subnet create screenshot" selectedImage={setSelectedImage} />
+            <ImageContainer className="mb-1"src="./dev-private-subnet-create.jpeg" alt="Subnet create screenshot" selectedImage={setSelectedImage} />
 
             <div className="space-y-6">
               <div className="gradient-card p-4 sm:p-6 rounded-lg border border-border">
