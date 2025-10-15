@@ -19,9 +19,12 @@ export function Step3({setSelectedImage}: Step3Props){
             <Paragraph>
               Go to Peering connections in the VPC side menu <br />
               • Click on <span className="text-primary font-semibold">Create peering connection</span><br />
-              • Assign it a namem, "peer-con-interface"<br />
-              • We'll name it "my-alb" <br />
-              • We'll make it internet-facing <br />
+              • Assign it a name, "peer-con-interface"<br />
+              • We'll make the prod-vpc make the peering request to dev-vpc<br />
+              <span className="block text-sm md:text-sm lg:text-sm sm:text-sm ml-4">
+                required in VPC peering to establish the connection</span>
+              • Review and 
+              <span className="text-black text-sm font-semibold px-2 py-0 bg-aws rounded-2xl">Create peering connection</span> <br />
               • Select the VPC <br />
               • Check the 2 AZs and select the public subnet in each <br />
               • Choose "LoadBalancerSG" as the security group
