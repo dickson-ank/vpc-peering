@@ -23,7 +23,7 @@ export function Step4({setSelectedImage}: Step4Props){
               • A Security Groups for the Bastion Hosts in both VPCs to allow ssh connection from anywhere.<br />
               • A Security Group for the ENI to allow ssh from the bastion in dev-vpc<br />
               <span className="block text-sm md:text-sm lg:text-sm sm:text-sm ml-4">
-                possible thanks to VPC Peering</span>
+                possible, thanks to VPC Peering!</span>
             </Paragraph>
 
             <Paragraph>
@@ -43,7 +43,7 @@ export function Step4({setSelectedImage}: Step4Props){
             
             <Paragraph>
               For ENI Security Group. <br />
-              • We'll name it "InstanceSG" <br />
+              • We'll name it "ENISG" <br />
               • Add inbound rule:<br />
               -SSH - Source: Custom - <span className="font-mono text-primary">0.0.0.0/0</span> <br />
             </Paragraph>
