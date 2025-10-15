@@ -62,18 +62,20 @@ export function Step5({setSelectedImage}: Step5Props){
           <Paragraph>
             Lauch two more instance for bastion hosts: <br /> <br />
             For "ProdBastion Server": <br />
-            In the network settings select prod-vpc and the prod-public-subnet <br />
+            In the network settings select "prod-vpc" and the "prod-public-subnet" <br />
+            Enable auto-assign IP <br />
             - And then select the ProdBastionSG security group <br />
             <br />
             For "DevBastion Server": <br />
-            In the network settings select dev-vpc and the dev-public-subnet <br />
+            In the network settings select "dev-vpc" and the "dev-public-subnet" <br />
+            Enable auto-assign IP <br />
             - And then select the DevBastionSG security group <br />
           </Paragraph>
 
           <Paragraph>
             One last thing to seal it all, <br />
             Go to Network Interfaces select the ENI we created <br />
-            
+
           </Paragraph>
          
       <div className="space-y-6">
