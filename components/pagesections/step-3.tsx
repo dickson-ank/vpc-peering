@@ -26,8 +26,8 @@ export function Step3({setSelectedImage}: Step3Props){
               • Review and 
               <span className="text-black text-sm font-semibold px-2 py-0 bg-aws rounded-2xl">Create peering connection</span> <br />
             </Paragraph>
-            <ImageContainer className="mb-1"src="./alb-create.jpeg" alt="RDS Subnet Group screenshot" selectedImage={setSelectedImage} />
-            <ImageContainer className="mb-1"src="./alb-create.jpeg" alt="RDS Subnet Group screenshot" selectedImage={setSelectedImage} />
+            <ImageContainer className="mb-1"src="./vpc-peer-requester.jpeg" alt="RDS Subnet Group screenshot" selectedImage={setSelectedImage} />
+            <ImageContainer className="mb-1"src="./vpc-peer-accepter.jpeg" alt="RDS Subnet Group screenshot" selectedImage={setSelectedImage} />
 
 
             <Paragraph>

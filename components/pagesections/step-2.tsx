@@ -55,7 +55,7 @@ export function Step2({setSelectedImage}: Step2Props){
               • We'll name it "prod-public-rtb" and associate it with the prod-vpc. <br />
               • <span className="text-black text-sm font-semibold px-2 py-0 bg-aws rounded-2xl">Create route table</span>
             </Paragraph>
-            <ImageContainer className="mt-1" src="./public-rt-create.jpeg" alt="Public route table create" selectedImage={setSelectedImage} />
+            <ImageContainer className="mt-1" src="./prod-public-rtb-create.jpeg" alt=" production public route table create" selectedImage={setSelectedImage} />
 
             <Paragraph>
               You'll be redirected to the dashboard of the just created route table<br />
@@ -64,7 +64,7 @@ export function Step2({setSelectedImage}: Step2Props){
               • Set the destination to <span className="font-mono text-primary">0.0.0.0/0</span> and the target to the production Internet Gateway("prod-igw")<br />
               <span className="text-black text-sm font-semibold px-2 py-0 bg-aws rounded-2xl">Save changes</span>
             </Paragraph>
-            <ImageContainer className="mt-1" src="./public-rt-route.jpeg" alt="Public route table route" selectedImage={setSelectedImage} />
+            <ImageContainer className="mt-1" src="./prod-public-rtb-route.jpeg" alt=" prod public route table route" selectedImage={setSelectedImage} />
 
             <Paragraph>
               We need to associate this route table with the public subnet so that it's reachable from the internet.<br />
@@ -72,7 +72,7 @@ export function Step2({setSelectedImage}: Step2Props){
               • Select the public subnet ("prod-public-subnet) <br />
               <span className="text-black text-sm font-semibold px-2 py-0 bg-aws rounded-2xl">Save associations</span>
             </Paragraph>
-            <ImageContainer className="mt-1" src="./public-rt-assoc.jpeg" alt="Public route table association" selectedImage={setSelectedImage} />
+            <ImageContainer className="mt-1" src="./prod-public-rtb-assoc.jpeg" alt="prod public route table association" selectedImage={setSelectedImage} />
 
             <Paragraph>
               We repeat the process to create route tables for the prod private subnet and dev public subnet<br />
