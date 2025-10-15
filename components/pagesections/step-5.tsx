@@ -12,8 +12,8 @@ export function Step5({setSelectedImage}: Step5Props){
     return(
         <ProjectSection id="step-5" title="Step 5: ENI & EC2 Instances" onImageClick={setSelectedImage}>
           <Paragraph>
-            In this step, we will launch two EC2 instance and attach a Network Interface to it, 
-            and configure them with their appropriate securitys group created in the previous step
+            In this step, we will launch three EC2 instances and attach a Network Interface to one of them, 
+            and configure them with their appropriate security groups created in the previous step
           </Paragraph>
 
           <Paragraph>
