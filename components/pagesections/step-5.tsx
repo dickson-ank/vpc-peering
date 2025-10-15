@@ -75,6 +75,12 @@ export function Step5({setSelectedImage}: Step5Props){
           <Paragraph>
             One last thing to seal it all, <br />
             Go to Network Interfaces select the ENI we created <br />
+            Select "Attach" from "Actions" <br />
+            Choose the "prod-vpc" <br />
+            And then choose the instance to attach the interface,i.e "Private Instance" <br />
+            Check if everything is correct and hit 
+            <span className="text-black text-sm font-semibold px-2 py-0 bg-aws rounded-2xl">
+                Attach</span>
 
           </Paragraph>
          
