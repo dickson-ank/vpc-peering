@@ -81,8 +81,8 @@ export function Step5({setSelectedImage}: Step5Props){
             Check if everything is correct and hit 
             <span className="text-black text-sm font-semibold px-2 py-0 bg-aws rounded-2xl">
                 Attach</span>
-
           </Paragraph>
+          <ImageContainer src="./ec2-network-settings.jpeg" alt="EC2 Network Settings" selectedImage={setSelectedImage} />
          
       <div className="space-y-6">
                     <div className="gradient-card p-4 sm:p-6 rounded-lg border border-border">
@@ -101,62 +101,14 @@ export function Step5({setSelectedImage}: Step5Props){
 #    ....
 # Routing section
 #    ....
+# VPC Peering
+#    ....
 # Security groups
 #    ....
 
-# EC2 Instances
+# ENI & EC2 Instances
 
-  Instance1:
-    Type: AWS::EC2::Instance
-    Properties:
-      InstanceType: t2.micro
-      KeyName: vockey
-      ImageId: !Ref AL2023AMI
-      NetworkInterfaces:
-        - AssociatePublicIpAddress: false
-          DeviceIndex: 0
-          SubnetId: !Ref PrivateSubnet
-          GroupSet:
-            - !Ref InstanceSecurityGroup
-      UserData:
-        Fn::Base64: !Sub |
-          #!/bin/bash
-          set -euxo pipefail
-          sudo yum update -y
-          sudo yum install -y httpd
-          sudo systemctl start httpd
-          sudo systemctl enable httpd
-          sudo echo "$HOSTNAME" > /var/www/html/index.html
-      Tags:
-        - Key: Name
-          Value: Instance1
-
-  Instance2:
-    Type: AWS::EC2::Instance
-    Properties:
-      InstanceType: t2.micro
-      KeyName: vockey
-      ImageId: !Ref AL2023AMI
-      NetworkInterfaces:
-        - AssociatePublicIpAddress: false
-          DeviceIndex: 0
-          SubnetId: !Ref PrivateSubnet
-          GroupSet:
-            - !Ref InstanceSecurityGroup
-      UserData:
-        Fn::Base64: !Sub |
-          #!/bin/bash
-          set -euxo pipefail
-          sudo yum update -y
-          sudo yum install -y httpd
-          sudo systemctl start httpd
-          sudo systemctl enable httpd
-          sudo echo "$HOSTNAME" > /var/www/html/index.html
-      Tags:
-        - Key: Name
-          Value: Instance2
-
-      
+  
                     `}
                           </SyntaxHighlighter>
                         </ReadMore>
