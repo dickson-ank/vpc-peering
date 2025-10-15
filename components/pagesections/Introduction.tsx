@@ -11,17 +11,12 @@ export function Introduction({setSelectedImage}: IntroductionProps){
         
         <ProjectSection id="introduction" title="Introduction: Initial Setup & Prerequisites" onImageClick={setSelectedImage}>
             <Paragraph>
-                When developing an architecture for an application on AWS,
-                it is highly recommended in cloud practices to provision application instances into private subnets 
-                with no direct access to the internet.
-                This ensures the safety of the application. However, the application still 
-                needs to respond to user requests,
-                hence the need for an interface to between the private instances an the users. 
-                This interface can be established with an Elastic Load Balancer.
+                This project establishes two separate VPC environments (PROD and DEV) 
+                and then connects them securely using VPC Peering.
             </Paragraph>
 
             <Paragraph>
-                Throughout this document, we would create the architecture below step by step to fufill this.
+                Below is the architecture of the project, we would build it step by step throughout this document
             </Paragraph>
 
             <ImageContainer src="./vpc-peering-topology.png" alt="Topology Diagram" selectedImage={setSelectedImage}>
