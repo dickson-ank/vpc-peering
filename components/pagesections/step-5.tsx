@@ -18,10 +18,13 @@ export function Step5({setSelectedImage}: Step5Props){
 
           <Paragraph>
             • Search for "EC2" in the Search bar and open the EC2 Dashboard. <br/>
-            • Go to "Network interfaces". <br/>
-            • Set number of instances to 2 (find this in the panel on the right, hopefully aws had not moved it somewhere else at the time you read this document) <br />
-            • We're creating 2 instances at a go so we won't set name tags yet. <br/>
-            • Choose an Amazon Machine Image (AMI). Select "Amazon Linux 2023". <br/>
+            • Go to "Network Interfaces". <br/>
+            • Create a new network interface <br />
+            • Add a description <br/>
+            • Select prod-private-subnet, so that it will be assigned a private ip form this subnet <br/>
+            • Check the "ENISG" security group and 
+            <span className="text-black text-sm font-semibold px-2 py-0 bg-aws rounded-2xl">
+                Create network interface</span>
           </Paragraph>
 
           <Paragraph>
