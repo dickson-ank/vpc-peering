@@ -26,8 +26,8 @@ export function Step5({setSelectedImage}: Step5Props){
             <span className="text-black text-sm font-semibold px-2 py-0 bg-aws rounded-2xl">
                 Create network interface</span>
           </Paragraph>
-          <ImageContainer src="./ec2-instance-type.jpeg" alt="EC2 Instance Type Selection" selectedImage={setSelectedImage} />
-          <ImageContainer src="./ec2-instance-type.jpeg" alt="EC2 Instance Type Selection" selectedImage={setSelectedImage} />
+          <ImageContainer src="./eni-create.jpeg" alt="ENI creation" selectedImage={setSelectedImage} />
+          <ImageContainer src="./eni-create2.jpeg" alt="ENI creation" selectedImage={setSelectedImage} />
 
 
           <Paragraph>
