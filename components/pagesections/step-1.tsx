@@ -37,7 +37,7 @@ export function Step1({setSelectedImage}: Step1Props){
                  <span className="block text-sm md:text-sm lg:text-sm sm:text-sm ml-4">
                   so that the prod and dev CIDRs do not overlap</span>
             </Paragraph>
-            <ImageContainer className="mb-1"src="./vpc-create.jpeg" alt="Container setup" selectedImage={setSelectedImage} />
+            <ImageContainer className="mb-1"src="./dev-vpc-create.jpeg" alt="DEV VPC CREATE" selectedImage={setSelectedImage} />
             
             <Paragraph>
               Now to create subnets, two for PROD and one for DEV, <br />

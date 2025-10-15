@@ -1,8 +1,8 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
- output: "export",
- basePath: "/vpc-peering",
- assetPrefix: "/vpc-peering/",
+//  output: "export",
+//  basePath: "/vpc-peering",
+//  assetPrefix: "/vpc-peering/",
   eslint: {
     ignoreDuringBuilds: true,
   },
