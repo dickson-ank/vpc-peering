@@ -38,9 +38,7 @@ export function Step4({setSelectedImage}: Step4Props){
               • Create another one with name "DevBastionSG" <br />
               • Add a description <br />
               • Select VPC (dev-vpc) <br />
-              • Set same inbound rules as the prod Bastion
-            </Paragraph>
-            
+              • Set same ssh inbound rule rom anywhere <br />
             <Paragraph>
               For ENI Security Group. <br />
               • We'll name it "ENISG" <br />
