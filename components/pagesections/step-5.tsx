@@ -12,11 +12,9 @@ export function Step5({setSelectedImage}: Step5Props){
     return(
         <ProjectSection id="step-5" title="Step 5: ENI & EC2 Instances" onImageClick={setSelectedImage}>
           <Paragraph>
-            In this step, we will launch two EC2 instances,
-            configure them with InstanceSG security group created in the previous step,
-            and set up user data scripts to automate the installation of necessary software.
+            In this step, we will launch two EC2 instance and attach a Network Interface to it, 
+            and configure them with their appropriate securitys group created in the previous step
           </Paragraph>
-          <ImageContainer src="./draw.io-ec2-database.png" alt="EC2 and Database Setup Diagram" selectedImage={setSelectedImage} />
 
           <Paragraph>
             • Search for "EC2" in the Search bar and open the EC2 Dashboard. <br/>
@@ -48,39 +46,9 @@ export function Step5({setSelectedImage}: Step5Props){
           <ImageContainer src="./ec2-network-settings.jpeg" alt="EC2 Network Settings" selectedImage={setSelectedImage} />
 
           <Paragraph>
-            • Leave everything else as default and scroll to Advanced Details <br />
-            • In the User Data section, copy and paste the code below:
-          </Paragraph>
-          
-            <div className="space-y-6 mb-4">
-              <div className="gradient-card p-4 sm:p-6 rounded-lg border border-border">
-                <h3 className="font-semibold text-foreground mb-4 text-sm sm:text-base">Instance User Data</h3>
-                <div className="space-y-4">
-                  <div className="bg-muted p-3 sm:p-4 rounded font-mono text-xs sm:text-sm">
-                    <div className="text-muted-foreground mb-1"># Copy this and paste it into the user data</div>
-                    <div>
-                    <SyntaxHighlighter style={{}} customStyle={{background: "transparent"}} language="bash">
-                      {`
-#!/bin/bash
-set -euxo pipefail
-sudo yum update -y
-sudo yum install -y httpd
-sudo systemctl start httpd
-sudo systemctl enable httpd
-sudo echo "$HOSTNAME" > /var/www/html/index.html
-                    `}
-                    </SyntaxHighlighter>
-                    </div>
-
-                        </div>
-                    </div>
-                </div>
-            </div>
-          <ImageContainer src="./ec2-user-data.jpeg" alt="Instance User Data" selectedImage={setSelectedImage} />
-          <Paragraph>
-            • Review and   
+            • Leave everything else untouched and review <br />  
               <span className="text-black text-sm font-semibold px-2 py-0 bg-aws rounded-2xl">
-                Launch instance</span>
+                Launch instance</span> when done.
           </Paragraph>
           <Paragraph>
             Once the instances finish creating, we'll go to the 
