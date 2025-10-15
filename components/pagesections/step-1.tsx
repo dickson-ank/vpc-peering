@@ -84,7 +84,7 @@ export function Step1({setSelectedImage}: Step1Props){
                   {`AWSTemplateFormatVersion: "2010-09-09"
                     
 Description: >-
-  This template creates a loadbalancer for 2 instances in a private network          
+  This template creates a VPC Peering connection for 2 disparate networks
 Parameters:
   VPCName:
     Description: The name of the VPC being created.
@@ -107,63 +107,7 @@ Mappings:
       CIDR: 10.0.3.0/28
   
 Resources:
-  VPC:
-    Type: AWS::EC2::VPC
-    Properties:
-      EnableDnsSupport: "true"
-      EnableDnsHostnames: "true"
-      CidrBlock: !FindInMap
-        - SubnetConfig
-        - VPC
-        - CIDR
-      Tags:
-        - Key: Name
-          Value: !Ref VPCName
 
-  PublicSubnet1:
-    Type: AWS::EC2::Subnet
-    Properties:
-      VpcId: !Ref VPC
-      AvailabilityZone: !Select
-        - 0
-        - !GetAZs
-      CidrBlock: !FindInMap
-        - SubnetConfig
-        - Public1
-        - CIDR
-      Tags:
-        - Key: Name
-          Value: public-subnet-1
-
-  PublicSubnet2:
-    Type: AWS::EC2::Subnet
-    Properties:
-      VpcId: !Ref VPC
-      AvailabilityZone: !Select
-        - 1
-        - !GetAZs
-      CidrBlock: !FindInMap
-        - SubnetConfig
-        - Public2
-        - CIDR
-      Tags:
-        - Key: Name
-          Value: public-subnet-2
-
-  PrivateSubnet:
-    Type: AWS::EC2::Subnet
-    Properties:
-      VpcId: !Ref VPC
-      AvailabilityZone: !Select
-        - 0
-        - !GetAZs
-      CidrBlock: !FindInMap
-        - SubnetConfig
-        - Private
-        - CIDR
-      Tags:
-        - Key: Name
-          Value: private-subnet
                     `}
                    </SyntaxHighlighter>
                   </ReadMore>
