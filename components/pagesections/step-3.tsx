@@ -11,59 +11,56 @@ interface Step3Props {
 
 export function Step3({setSelectedImage}: Step3Props){
     return(
-        <ProjectSection id="step-4" title="Step 4: Security Groups" onImageClick={setSelectedImage}>
+        <ProjectSection id="step-3" title="Step 3: VPC Peering" onImageClick={setSelectedImage}>
             <Paragraph>
-              In this step we will set up Security Groups to control access to the Instances we will create in the next step <br />
-              We will create a Secuity Group for an Elastic Network Interface (ENI) <br />
-              Security Groups act as virtual firewalls that regulate inbound and outbound traffic. 
-              We will create rules to allow only necessary traffic, ensuring a robust architecture.
+              In this section we are going to a create The Load Balancer which will forward user requests to the instances
             </Paragraph>
+          
             <Paragraph>
-              What we'll create: <br />
-              • A Security Groups for the Bastion Hosts in both VPCs to allow ssh connection from anywhere.<br />
-              • A Security Group for the ENI to allow ssh from the bastion in dev-vpc<br />
-              <span className="block text-sm md:text-sm lg:text-sm sm:text-sm ml-4">
-                possible thanks to VPC Peering</span>
+              Locate Load Balancers on the EC2 sidebar under "Load Balancing" <br />
+              • Click on <span className="text-primary font-semibold">Create load balancer</span><br />
+              • Choose Classic Load Balancer<br />
+              • We'll name it "my-alb" <br />
+              • We'll make it internet-facing <br />
+              • Select the VPC <br />
+              • Check the 2 AZs and select the public subnet in each <br />
+              • Choose "LoadBalancerSG" as the security group
+            </Paragraph>
+            <ImageContainer className="mb-1"src="./alb-create.jpeg" alt="RDS Subnet Group screenshot" selectedImage={setSelectedImage} />
+
+
+            <Paragraph>
+              Inside listeners and routing: <br />
+              -Set an HTTP listener on port 80 <br />
+              -Set another listener for SSH (tcp on port 22) <br />
+            </Paragraph>
+            <ImageContainer className="mb-1"src="./alb-listerners-and-routing.jpeg" alt="RDS Subnet Group screenshot" selectedImage={setSelectedImage} />
+
+            <Paragraph>
+              Add instances <br />
+            </Paragraph>
+            <ImageContainer  src="./alb-add-instances.jpeg" alt="RDS Subnet Group screenshot" selectedImage={setSelectedImage} />
+
+            <Paragraph>
+               <span className="text-sm md:text-sm lg:text-sm sm:text-sm block ml-4">- Instance1 and Instance2 if you named them so</span><br /> <br />
+              Leave everything else as-is and 
+              <span className="text-black text-sm font-semibold px-2 py-0 bg-aws rounded-2xl">Create load balancer</span>
             </Paragraph>
 
             <Paragraph>
-              We'll start with the Bastion Security Groups <br />
-              • Go to Security Groups in the VPC Dashboard. <br />
-              • <span className="text-primary font-semibold">Create Security Group</span>.<br />
-              • We'll name it "ProdBastionSG" <br />
-              • Add a description <br />
-              • Select VPC (prod-vpc) <br />
-               For Inbound rules:<br />
-              • Add a rule for SSH access from anywhere<br />
-              • Create another one with name "DevBastionSG" <br />
-              • Add a description <br />
-              • Select VPC (dev-vpc) <br />
-              • Set same inbound rules as the prod Bastion
+             It will take a few minutes to set up <br />
+             Once it's done, copy the ALB DNS name and note it somewhere
             </Paragraph>
+            <ImageContainer className="mb-1"src="./alb-dns-name.jpeg" alt="RDS Engine screenshot" selectedImage={setSelectedImage} />
             
-            <Paragraph>
-              For ENI Security Group. <br />
-              • We'll name it "InstanceSG" <br />
-              • Add inbound rule:<br />
-              -SSH - Source: Custom - <span className="font-mono text-primary">0.0.0.0/0</span> <br />
-            </Paragraph>
-            <ImageContainer  src="./InstanceSG-create.jpeg" alt="Instance SG screenshot" selectedImage={setSelectedImage} />
-                        
-            
-            <Note grid={false}
-            note1={<>
-              - The instances security should allow traffic from only the load balancer security group<br />
-              - Ensure to use descriptive names and comments for rules to make management easier <br />
-                  </>}        
-            />
             
             <div className="space-y-6">
               <div className="gradient-card p-4 sm:p-6 rounded-lg border border-border">
-                <h3 className="font-semibold text-foreground mb-4 text-sm sm:text-base">Cloudformation Code for Step 3 - (Security Groups)</h3>
+                <h3 className="font-semibold text-foreground mb-4 text-sm sm:text-base">Cloudformation Code for Step 5 - (Load Balancer)</h3>
                 <p className="text-xs text-muted-foreground sm:text-xs md:text-xs lg:text-xs mb-2">The part of the Cloudformation code that creates
-                 the Security Groups as dicussed above<br/>
+                 the Load Balancer dicussed above<br/>
                 Uploading only this part to Cloudformation will fail to create unless the VPC and Subnets from Step 1 are already created <br />
-                Append this code to the code from Step 1 and Step 2 to make it work, and ensure the indentations are correct
+                Append this code to the code from Step 1 through Step 4 to make it work, and ensure the indentations are correct
                 </p>
                 <div className="bg-muted p-3 sm:p-4 rounded font-mono text-xs sm:text-sm overflow-x-auto mb-4">
                   <ReadMore>
@@ -74,51 +71,49 @@ export function Step3({setSelectedImage}: Step3Props){
 #    ....
 # Routing section
 #    ....
-
 # Security groups
+#    ....
+# EC2 Instances
+#    ....
+# Load Balancer
 
-  LoadBalancerSecurityGroup:
-    Type: AWS::EC2::SecurityGroup
+  LoadBalancer:
+    Type: AWS::ElasticLoadBalancing::LoadBalancer
     Properties:
-      GroupDescription: Enable SSH and HTTP access from anywhere
-      VpcId: !Ref VPC
-      SecurityGroupIngress:
-        - IpProtocol: tcp
-          FromPort: 22
-          ToPort: 22
-          CidrIp: 0.0.0.0/0
-        - IpProtocol: tcp
-          FromPort: 80
-          ToPort: 80
-          CidrIp: 0.0.0.0/0
-      Tags:
-        - Key: Name
-          Value: LoadBalancerSG
+      Scheme: internet-facing
+      LoadBalancerName: my-alb
+      Subnets:
+        - !Ref PublicSubnet1
+        - !Ref PublicSubnet2
+      Listeners: 
+        - LoadBalancerPort: 80
+          InstancePort: 80
+          Protocol: HTTP
+          InstanceProtocol: HTTP
+        - LoadBalancerPort: 22
+          InstancePort: 22
+          Protocol: TCP 
+          InstanceProtocol: TCP
+      SecurityGroups: 
+        - !Ref LoadBalancerSecurityGroup
+      HealthCheck: 
+        Target: HTTP:80/index.html 
+        HealthyThreshold: '3'
+        UnhealthyThreshold: '5'
+        Interval: '30'
+        Timeout: '5'
+      Instances: 
+        - !Ref Instance1
+        - !Ref Instance2
 
-  InstanceSecurityGroup:
-    Type: AWS::EC2::SecurityGroup
-    Properties:
-      GroupDescription: Enable HTTP and SSH access from Load Balancer Security Group
-      VpcId: !Ref VPC
-      SecurityGroupIngress:
-        - IpProtocol: tcp
-          FromPort: 80
-          ToPort: 80
-          SourceSecurityGroupId: !Ref LoadBalancerSecurityGroup 
-        - IpProtocol: tcp
-          FromPort: 22
-          ToPort: 22
-          SourceSecurityGroupId: !Ref LoadBalancerSecurityGroup
-      Tags:
-        - Key: Name
-          Value: InstanceSG
 
+  
               `}
                     </SyntaxHighlighter>
                   </ReadMore>
-                </div>
-            </div>
-          </div>
+                                    </div>
+                                </div>
+                              </div>
           
         </ProjectSection>
     )
