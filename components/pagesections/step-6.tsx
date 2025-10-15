@@ -66,7 +66,7 @@ export function Step6({setSelectedImage}: Step6Props){
             <h4 className="text-xl sm:text-xl md:text-2xl lg:text-2xl font-bold text-foreground mb-4 text-balance">
                Congratulations!</h4>
             That's all about it, we've been able to successfully complete the design
-            <ImageContainer src="./private-attach-elb-topology.png" alt="Topology Diagram" selectedImage={setSelectedImage} />
+            <ImageContainer src="./vpc-peering-topology.png" alt="Topology Diagram" selectedImage={setSelectedImage} />
         </ProjectSection>
     )
 }
