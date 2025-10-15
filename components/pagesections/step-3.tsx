@@ -17,9 +17,9 @@ export function Step3({setSelectedImage}: Step3Props){
             </Paragraph>
           
             <Paragraph>
-              Locate Load Balancers on the EC2 sidebar under "Load Balancing" <br />
-              • Click on <span className="text-primary font-semibold">Create load balancer</span><br />
-              • Choose Classic Load Balancer<br />
+              Go to Peering connections in the VPC side menu <br />
+              • Click on <span className="text-primary font-semibold">Create peering connection</span><br />
+              • Assign it a namem, "peer-con-interface"<br />
               • We'll name it "my-alb" <br />
               • We'll make it internet-facing <br />
               • Select the VPC <br />
