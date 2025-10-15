@@ -92,7 +92,8 @@ export function Step4({setSelectedImage}: Step4Props){
 #    ....
 # Routing section
 #    ....
-
+# VPC Peering
+#    ....
 # Security groups
 
   LoadBalancerSecurityGroup:

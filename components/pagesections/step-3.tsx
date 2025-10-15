@@ -70,42 +70,7 @@ export function Step3({setSelectedImage}: Step3Props){
 #    ....
 # Routing section
 #    ....
-# Security groups
-#    ....
-# EC2 Instances
-#    ....
-# Load Balancer
-
-  LoadBalancer:
-    Type: AWS::ElasticLoadBalancing::LoadBalancer
-    Properties:
-      Scheme: internet-facing
-      LoadBalancerName: my-alb
-      Subnets:
-        - !Ref PublicSubnet1
-        - !Ref PublicSubnet2
-      Listeners: 
-        - LoadBalancerPort: 80
-          InstancePort: 80
-          Protocol: HTTP
-          InstanceProtocol: HTTP
-        - LoadBalancerPort: 22
-          InstancePort: 22
-          Protocol: TCP 
-          InstanceProtocol: TCP
-      SecurityGroups: 
-        - !Ref LoadBalancerSecurityGroup
-      HealthCheck: 
-        Target: HTTP:80/index.html 
-        HealthyThreshold: '3'
-        UnhealthyThreshold: '5'
-        Interval: '30'
-        Timeout: '5'
-      Instances: 
-        - !Ref Instance1
-        - !Ref Instance2
-
-
+# VPC Peering
   
               `}
                     </SyntaxHighlighter>
