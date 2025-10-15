@@ -27,32 +27,25 @@ export function Step3({setSelectedImage}: Step3Props){
             </Paragraph>
 
             <Paragraph>
-              We'll start with the Classic Load Balancer Group <br />
-              • Go to Security in the VPC Dashboard. <br />
+              We'll start with the Bastion Security Groups <br />
+              • Go to Security Groups in the VPC Dashboard. <br />
               • <span className="text-primary font-semibold">Create Security Group</span>.<br />
-              • We'll name it "LoadBalancerSG" <br />
+              • We'll name it "ProdBastionSG" <br />
               • Add a description <br />
-              • Select VPC (my-vpc) <br />
-            </Paragraph>
-
-            <Paragraph>
-              For Inbound rules:<br />
+              • Select VPC (prod-vpc) <br />
+               For Inbound rules:<br />
               • Add a rule for SSH access from anywhere<br />
-              • Choose "SSH" from the dropdown <br />
-              • Set the Source to "Anywhere IPv4" <br />
-              • Add another rule for HTTP also with Source "Anywhere IPv4" <br />
-              • Review and
-              <span className="text-black text-sm font-semibold px-2 py-0 bg-aws rounded-2xl">
-                Create security group</span>
+              • Create another one with name "DevBastionSG" <br />
+              • Add a description <br />
+              • Select VPC (dev-vpc) <br />
+              • Set same inbound rules as the prod Bastion
             </Paragraph>
-            <ImageContainer src="./loadbalancer-sg-create.jpeg" alt="Load Balancer SG screenshot" selectedImage={setSelectedImage} />
             
             <Paragraph>
-              For Instance Security Group. <br />
+              For ENI Security Group. <br />
               • We'll name it "InstanceSG" <br />
-              • Add inbound rules:<br />
-              • SSH - Source: Custom - "LoadBalancerSG" (search "sg" and select LoadBalancerSG from the dropdown) <br />
-              • HTTP - Source: Custom - also from "LoadBalancerSG"  <br />
+              • Add inbound rule:<br />
+              -SSH - Source: Custom - <span className="font-mono text-primary">0.0.0.0/0</span> <br />
             </Paragraph>
             <ImageContainer  src="./InstanceSG-create.jpeg" alt="Instance SG screenshot" selectedImage={setSelectedImage} />
                         

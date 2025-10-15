@@ -10,7 +10,7 @@ interface Step4Props {
 
 export function Step4({setSelectedImage}: Step4Props){
     return(
-        <ProjectSection id="step-4" title="Step 4: EC2 Instances" onImageClick={setSelectedImage}>
+        <ProjectSection id="step-4" title="Step 4: ENI & EC2 Instances" onImageClick={setSelectedImage}>
           <Paragraph>
             In this step, we will launch two EC2 instances,
             configure them with InstanceSG security group created in the previous step,
