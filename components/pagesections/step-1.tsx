@@ -28,6 +28,8 @@ export function Step1({setSelectedImage}: Step1Props){
                 • Set an IPv4 CIDR block of <span className="font-mono text-primary">10.0.0.0/16</span><br/>
                 • Review and <span className="text-black text-sm font-semibold px-2 py-0 bg-aws rounded-2xl">Create VPC</span><br/>
             </Paragraph>
+            <ImageContainer className="mb-1"src="./prod-vpc-create.jpeg" alt="PROD VPC CREATE" selectedImage={setSelectedImage} />
+
 
             <Paragraph>
                 • Create another VPC <br/>
@@ -62,7 +64,7 @@ export function Step1({setSelectedImage}: Step1Props){
               • Different AZ from prod-public-subnet <br />
               • CIDR: <span className="font-mono text-primary">10.0.2.0/28</span>
             </Paragraph>
-            <ImageContainer className="mb-1"src="./create-public-subnet-2.jpeg" alt="Subnet create screenshot" selectedImage={setSelectedImage} />
+            <ImageContainer className="mb-1"src="./prod-private-subnet-create.jpeg" alt="Production private subnet create" selectedImage={setSelectedImage} />
             
             <Paragraph>
               And then create the DEV public subnet <br />
