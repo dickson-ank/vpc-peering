@@ -18,7 +18,7 @@ export function Step5({setSelectedImage}: Step5Props){
 
           <Paragraph>
             • Search for "EC2" in the Search bar and open the EC2 Dashboard. <br/>
-            • Click on "Launch Instance". <br/>
+            • Go to "Network interfaces". <br/>
             • Set number of instances to 2 (find this in the panel on the right, hopefully aws had not moved it somewhere else at the time you read this document) <br />
             • We're creating 2 instances at a go so we won't set name tags yet. <br/>
             • Choose an Amazon Machine Image (AMI). Select "Amazon Linux 2023". <br/>
@@ -46,7 +46,7 @@ export function Step5({setSelectedImage}: Step5Props){
           <ImageContainer src="./ec2-network-settings.jpeg" alt="EC2 Network Settings" selectedImage={setSelectedImage} />
 
           <Paragraph>
-            • Leave everything else untouched and review <br />  
+            • Leave everything else untouched andreview <br />  
               <span className="text-black text-sm font-semibold px-2 py-0 bg-aws rounded-2xl">
                 Launch instance</span> when done.
           </Paragraph>
