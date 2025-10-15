@@ -9,9 +9,9 @@ import { useState } from "react"
 import { Hero } from "@/components/pagesections/hero"
 import { Step1 } from "@/components/pagesections/step-1"
 import { Step2 } from "@/components/pagesections/step-2"
-import { Step3 } from "@/components/pagesections/step-8"
-import { Step4 } from "@/components/pagesections/step-5"
-import { Step5 } from "@/components/pagesections/step-3"
+import { Step3 } from "@/components/pagesections/step-3"
+import { Step4 } from "@/components/pagesections/step-4"
+import { Step5 } from "@/components/pagesections/step-5"
 import { Step6 } from "@/components/pagesections/step-6"
 
 const sections = [
