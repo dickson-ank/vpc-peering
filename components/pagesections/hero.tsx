@@ -8,7 +8,7 @@ export function Hero(){
         </div>
         <section className="gradient-bg py-16 sm:py-20 px-4 sm:px-6 lg:px-8">
           <div className="max-w-4xl mx-auto text-center">
-            <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-4xl font-bold text-foreground mb-6 text-balance">
+            <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-4xl font-bold text-foreground mb-6 text-wrap">
               Secure Multi-VPC Cloud Architecture with VPC Peering
             </h1>
             <p className="text-sm sm:text-lg text-primary mb-10 text-pretty max-w-2xl mx-auto">

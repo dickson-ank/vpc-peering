@@ -12,21 +12,30 @@ export function Step1({setSelectedImage}: Step1Props){
     return(
         <ProjectSection id="step-1" title="Step 1: Creating VPC and Subnets" onImageClick={setSelectedImage}>
             <Paragraph>
-              We will first create an isoloated network using a VPC and create 3 subnets inside it
+              We will first create an two isoloated networks for the environments using a VPC
               <span className="block text-sm md:text-sm lg:text-sm sm:text-sm ml-4">
                 Two public and one private
               </span>
             </Paragraph>
 
             <Paragraph>
-                • In the Management Console search for VPC and open the VPC Dashboard. <br/>
+                • From the Management Console got to the VPC Dashboard. <br/>
                 • <span className="text-primary font-semibold">Create VPC</span>. <br/>
-                • "VPC only" and provide a name ("my-vpc" in my case). <br/>
+                • "VPC only" and provide a name ("prod-vpc" for production environment). <br/>
                  <span className="block text-sm md:text-sm lg:text-sm sm:text-sm ml-4">
-                  I will be using this name format for the entire project for simplicity, 
+                  I will be using this naming format for the entire project for simplicity, 
                  you can use any format that works for you</span>
                 • Set an IPv4 CIDR block of <span className="font-mono text-primary">10.0.0.0/16</span><br/>
                 • Review and <span className="text-black text-sm font-semibold px-2 py-0 bg-aws rounded-2xl">Create VPC</span><br/>
+            </Paragraph>
+
+            <Paragraph>
+                • Create another VPC <br/>
+                • <span className="text-primary font-semibold">Create VPC</span>. <br/>
+                • "VPC only" and provide a name ("dev-vpc" for development environment). <br/>
+                • Set an IPv4 CIDR block of <span className="font-mono text-primary">192.168.0.0/16</span><br/>
+                 <span className="block text-sm md:text-sm lg:text-sm sm:text-sm ml-4">
+                  so that the prod and dev CIDRs do not overlap</span>
             </Paragraph>
             <ImageContainer className="mb-1"src="./vpc-create.jpeg" alt="Container setup" selectedImage={setSelectedImage} />
             
