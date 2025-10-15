@@ -58,12 +58,12 @@ export function Step4({setSelectedImage}: Step4Props){
             </Paragraph>
             <ImageContainer  src="./InstanceSG-create.jpeg" alt="Instance SG screenshot" selectedImage={setSelectedImage} />
 
-
             <Paragraph>
               For ENI Security Group. <br />
               • We'll name it "ENISG" <br />
+              • Will be in the prod-vpc <br />
               • Add inbound rule:<br />
-              -SSH - Source: Custom - <span className="font-mono text-primary">0.0.0.0/0</span> <br />
+              SSH - Source: Custom <span className="font-mono text-primary">192.168.1.0/24</span> from dev bastion's subnet <br />
             </Paragraph>
             <ImageContainer  src="./InstanceSG-create.jpeg" alt="Instance SG screenshot" selectedImage={setSelectedImage} />
                         
