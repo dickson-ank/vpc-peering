@@ -44,7 +44,7 @@ export function Step2({setSelectedImage}: Step2Props){
             <ImageContainer src="./igw-attach.jpeg" alt="Internet gateway attach" selectedImage={setSelectedImage} />
 
             <Paragraph>
-              Create the second Internet Gateway and attach it to "dev-vpc"
+              Create the second Internet Gateway call it "dev-igw" and attach it to "dev-vpc"
             </Paragraph>
             
 
@@ -61,26 +61,36 @@ export function Step2({setSelectedImage}: Step2Props){
               You'll be redirected to the dashboard of the just created route table<br />
               There, select the "Routes" tab. Click on <span className="text-primary font-semibold"> Edit routes </span>
                and then <span className="text-primary font-semibold"> Add route</span>. <br />
-              • Set the destination to <span className="font-mono text-primary">0.0.0.0/0</span> and the target to the Internet Gateway("my-igw")<br />
+              • Set the destination to <span className="font-mono text-primary">0.0.0.0/0</span> and the target to the production Internet Gateway("prod-igw")<br />
               <span className="text-black text-sm font-semibold px-2 py-0 bg-aws rounded-2xl">Save changes</span>
             </Paragraph>
             <ImageContainer className="mt-1" src="./public-rt-route.jpeg" alt="Public route table route" selectedImage={setSelectedImage} />
 
             <Paragraph>
-              We need to associate this route table with the public subnets so they're reachable from the internet.<br />
+              We need to associate this route table with the public subnet so that it's reachable from the internet.<br />
               • Select the "Subnet associations" tab and <span className="text-primary font-semibold">Edit subnet associations</span>.<br />
-              • Select the public subnets ("public-subnet-1", "public-subnet-2") <br />
+              • Select the public subnet ("prod-public-subnet) <br />
               <span className="text-black text-sm font-semibold px-2 py-0 bg-aws rounded-2xl">Save associations</span>
             </Paragraph>
             <ImageContainer className="mt-1" src="./public-rt-assoc.jpeg" alt="Public route table association" selectedImage={setSelectedImage} />
 
             <Paragraph>
-              We repeat the process to create a route table for the private subnet.<br />
-              • We'll name it "private-rtb" and associate it with the VPC. <br />
-              • In the "Routes" tab, add a route with destination <span className="font-mono text-primary">0.0.0.0/0 </span> 
-              and target the NAT Gateway ("my-ngw"). <br />
-              • In the "Subnet associations" tab, associate the private subnet
-              ("private-subnet) with this route table.<br />
+              We repeat the process to create route tables for the prod private subnet and dev public subnet<br />
+              Prod Private Route Table: <br />
+              • Name: "prod-private-rtb" and associate it with the prod-vpc as well <br />
+              • Don't set any routes yet as this subnet is private and can only relate with other subnets internally <br />
+              <span className="block text-sm md:text-sm lg:text-sm sm:text-sm ml-4">
+                we'll come back to add a route to the VPC Peering Connection later</span>
+              • In the "Subnet associations" tab, associate the prod private subnet
+              ("prod-private-subnet) with this route table.<br /> <br />
+
+              Dev Public Route Table: <br />
+              • Name: "dev-public-rtb" and associate it with the dev-vpc. <br />
+              • Set a route with destination <span className="font-mono text-primary">0.0.0.0/0</span> and target to the development Internet Gateway("dev-igw")<br />  <br />
+              <span className="block text-sm md:text-sm lg:text-sm sm:text-sm ml-4">
+                we'll come back to add a route to the VPC Peering Connection later</span>
+              • In the "Subnet associations" tab, associate the prod private subnet
+              ("prod-private-subnet) with this route table.<br />
             </Paragraph>
             
             <Paragraph>
