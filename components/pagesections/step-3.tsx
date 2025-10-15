@@ -50,9 +50,9 @@ export function Step3({setSelectedImage}: Step3Props){
                 <span className="block text-sm md:text-sm lg:text-sm sm:text-sm ml-4">
                 now both subnets know the route to communicate with each other is through the Peering Connection</span>
             </Paragraph>
-            <ImageContainer  src="./alb-add-instances.jpeg" alt="RDS Subnet Group screenshot" selectedImage={setSelectedImage} />
-            <ImageContainer  src="./alb-add-instances.jpeg" alt="RDS Subnet Group screenshot" selectedImage={setSelectedImage} />
-            
+            <ImageContainer  src="./vpc-con-rtb-update1.jpeg" alt="Route table update" selectedImage={setSelectedImage} />
+            <ImageContainer  src="./vpc-con-rtb-update2.jpeg" alt="route table update" selectedImage={setSelectedImage} />
+
             <div className="space-y-6">
               <div className="gradient-card p-4 sm:p-6 rounded-lg border border-border">
                 <h3 className="font-semibold text-foreground mb-4 text-sm sm:text-base">Cloudformation Code for Step 3 - (VPC Peering)</h3>
