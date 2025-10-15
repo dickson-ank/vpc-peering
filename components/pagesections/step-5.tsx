@@ -49,7 +49,7 @@ export function Step5({setSelectedImage}: Step5Props){
             <span className="text-sm md:text-sm lg:text-sm sm:text-sm block ml-4">the instance is private and doesn't
               require a public IP.</span>
             - Under Security Group, "Select an existing security group" 
-            and select the  "PrivateInstanceSG" security <br/> <br />
+            and choose the  "PrivateInstanceSG" security <br/> <br />
          </Paragraph>
           <ImageContainer src="./ec2-network-settings.jpeg" alt="EC2 Network Settings" selectedImage={setSelectedImage} />
 
@@ -60,9 +60,10 @@ export function Step5({setSelectedImage}: Step5Props){
           </Paragraph>
 
           <Paragraph>
-            Once the instances finish creating, we'll go to the 
-            dashboard and assign them names so we can easily identify them later <br />
-            - Name them "Instance1" and "Instance2"
+            Lauch two more instance for bastion hosts: <br /> <br />
+            For "ProdBastion Server": <br />
+            In the network settings select prod-vpc and the prod-public-subnet <br />
+            - And then select the ProdBastionSG security group <br />
           </Paragraph>
          
       <div className="space-y-6">
