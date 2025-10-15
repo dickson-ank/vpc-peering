@@ -31,43 +31,28 @@ export function Step2({setSelectedImage}: Step2Props){
               before we move on<br />
               Choose "Internet gateways" from the sidebar and click on 
               <span className="text-primary font-semibold"> Create Internet Gateway</span>.<br />
-              • Name it "my-igw" <br />
+              • Name it "prod-igw" <br />
               and 
               <span className="text-black text-sm font-semibold px-2 py-0 bg-aws rounded-2xl">
                 Create internet gateway
-              </span>.<br />
+              </span>.<br /> <br />
             </Paragraph>
 
             <Paragraph>Select <span className="text-primary font-semibold">Attach to VPC </span>
-             from the green pop-up and select the VPC ("my-vpc").
+             from the green pop-up and select the VPC ("prod-vpc").
              </Paragraph>
             <ImageContainer src="./igw-attach.jpeg" alt="Internet gateway attach" selectedImage={setSelectedImage} />
 
-            
             <Paragraph>
-              Now go to "NAT Gateways" and 
-              <span className="text-primary font-semibold"> Create NAT Gateway</span>.<br /> 
-              • Name: "my-ngw" <br />
-              • Choose the first public subnet ("public-subnet-1")<br />
-                <span className="block text-muted-foreground text-sm mt-1 ml-4">
-                A NAT Gateway must always be in a public subnet
-                </span>
-              • Allocate an Elastic IP <br />
-              <span className="block text-sm md:text-sm lg:text-sm sm:text-sm ml-4">
-                A elastic ip gives the NAT Gateway a static IP address
-              </span>
-              • Review and 
-              <span className="text-black text-sm font-semibold px-2 py-0 bg-aws rounded-2xl">
-                Create NAT gateway
-              </span>
+              Create the second Internet Gateway and attach it to "dev-vpc"
             </Paragraph>
-            <ImageContainer className="mt-1" src="./ngw-create.jpeg" alt="NAT Gateway create" selectedImage={setSelectedImage} />
+            
 
             <Paragraph>
-              Now that we have both Internet Gateway and NAT Gateway created, we can create the route tables
+              Now that we have both Internet Gateways created, we can create the route tables
               Open "Route Tables" from the side menu <br />
               <span className="text-primary font-semibold">• Create Route Table.</span><br />
-              • We'll name it "public-rtb" and associate it with the VPC. <br />
+              • We'll name it "prod-public-rtb" and associate it with the prod-vpc. <br />
               • <span className="text-black text-sm font-semibold px-2 py-0 bg-aws rounded-2xl">Create route table</span>
             </Paragraph>
             <ImageContainer className="mt-1" src="./public-rt-create.jpeg" alt="Public route table create" selectedImage={setSelectedImage} />
