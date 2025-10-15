@@ -40,41 +40,36 @@ export function Step1({setSelectedImage}: Step1Props){
             <ImageContainer className="mb-1"src="./vpc-create.jpeg" alt="Container setup" selectedImage={setSelectedImage} />
             
             <Paragraph>
-              Now to create subnets, <br />
-              <span className="block text-sm md:text-sm lg:text-sm sm:text-sm ml-4">If you're wondering why create subnets by the way, 
-              they're used to sectionalize the VPC. 
-              They allow us to easily apply rules that determine which sections of 
-              the network have access to the internet and which do not.</span> 
+              Now to create subnets, two for PROD and one for DEV, <br />
+              Expand the VPC Dashboard sidebar and go to Subnets
             </Paragraph>
 
-            <p className="text-muted-foreground mb-6 text-pretty text-sm sm:text-base">
-              Expand the VPC Dashboard sidebar if closed and go to Subnets
-            </p>
             <Paragraph>
               <span className="text-primary font-semibold">Create Subnet</span><br />
-              Choose the VPC created earlier ("my-vpc"). <br />
-              We will create Public Subnets first <br />
-              • So name it "public-subnet-1" since it's the only public subnet <br />
+              Choose the production VPC ("prod-vpc"). <br />
+              We will create a Public Subnet first <br />
+              • So name it "prod-public-subnet"  <br />
               • Set the Availability Zone to your preference (e.g., us-west-2a) and note it somewhere<br />
                <span className="block text-sm md:text-sm lg:text-sm sm:text-sm ml-4">
-                becasue the second public subnet must be in a different AZ</span>
+                becasue the second subnet must be in a different AZ</span>
               • Set the IPv4 subnet CIDR block to <span className="font-mono text-primary">10.0.1.0/28</span> <br />
               • Review and click <span className="text-black text-sm font-semibold px-2 py-0 bg-aws rounded-2xl">Create Subnet</span> <br />
             </Paragraph>
             <ImageContainer className="mb-1"src="./create-public-subnet-1.jpeg" alt="Subnet create screenshot" selectedImage={setSelectedImage} />
             <Paragraph>
-              We will follow similar procedure to create the second public subnet <br />
-              • Name: public-subnet-2 <br />
-              • Different AZ from prublic-subnet-1 <br />
+              We will follow similar procedure to create the private subnet <br />
+              • Name: prod-private-subnet <br />
+              • Different AZ from prod-public-subnet <br />
               • CIDR: <span className="font-mono text-primary">10.0.2.0/28</span>
             </Paragraph>
             <ImageContainer className="mb-1"src="./create-public-subnet-2.jpeg" alt="Subnet create screenshot" selectedImage={setSelectedImage} />
             
             <Paragraph>
-              And then a private subnet <br />
-              • Name: private-subnet<br />
-              • Same AZ as public-subnet-1 <br />
-              • CIDR: <span className="font-mono text-primary">10.0.3.0/28</span>
+              And then create the DEV public subnet <br />
+              • Must be in the dev-vpc
+              • Name: dev-public-subnet<br />
+              • Same AZ as prod-public-subnet <br />
+              • CIDR: <span className="font-mono text-primary">192.168.1.0/24</span>
             </Paragraph>
             <ImageContainer className="mb-1"src="./create-private-subnet.jpeg" alt="Subnet create screenshot" selectedImage={setSelectedImage} />
 
