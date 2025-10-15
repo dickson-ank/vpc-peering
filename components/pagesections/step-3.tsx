@@ -11,16 +11,19 @@ interface Step3Props {
 
 export function Step3({setSelectedImage}: Step3Props){
     return(
-        <ProjectSection id="step-3" title="Step 3: Security Groups" onImageClick={setSelectedImage}>
+        <ProjectSection id="step-4" title="Step 4: Security Groups" onImageClick={setSelectedImage}>
             <Paragraph>
-              In this step we will set up Security Groups to control access to the instances and load balancer we will provision <br />
+              In this step we will set up Security Groups to control access to the Instances we will create in the next step <br />
+              We will create a Secuity Group for an Elastic Network Interface (ENI) <br />
               Security Groups act as virtual firewalls that regulate inbound and outbound traffic. 
-              We will create rules to allow only necessary traffic, enhancing the security of our application.
+              We will create rules to allow only necessary traffic, ensuring a robust architecture.
             </Paragraph>
             <Paragraph>
               What we'll create: <br />
-              • A Security Group for the Classic Load Balancer to allow ssh and http.<br />
-              • A Security Group for Instances to allow traffic from the Load Balancer group only<br />
+              • A Security Groups for the Bastion Hosts in both VPCs to allow ssh connection from anywhere.<br />
+              • A Security Group for the ENI to allow ssh from the bastion in dev-vpc<br />
+              <span className="block text-sm md:text-sm lg:text-sm sm:text-sm ml-4">
+                possible thanks to VPC Peering</span>
             </Paragraph>
 
             <Paragraph>
