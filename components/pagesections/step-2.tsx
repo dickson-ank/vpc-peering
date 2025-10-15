@@ -49,7 +49,7 @@ export function Step2({setSelectedImage}: Step2Props){
             
 
             <Paragraph>
-              Now that we have both Internet Gateways created, we can create the route tables
+              Now that we have both Internet Gateways created, we can create the route tables <br />
               Open "Route Tables" from the side menu <br />
               <span className="text-primary font-semibold">• Create Route Table.</span><br />
               • We'll name it "prod-public-rtb" and associate it with the prod-vpc. <br />
