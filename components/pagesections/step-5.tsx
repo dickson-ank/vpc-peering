@@ -82,7 +82,7 @@ export function Step5({setSelectedImage}: Step5Props){
             <span className="text-black text-sm font-semibold px-2 py-0 bg-aws rounded-2xl">
                 Attach</span>
           </Paragraph>
-          <ImageContainer src="./ec2-network-settings.jpeg" alt="EC2 Network Settings" selectedImage={setSelectedImage} />
+          <ImageContainer src="./attach-eni.png" alt="EC2 Network Settings" selectedImage={setSelectedImage} />
          
       <div className="space-y-6">
                     <div className="gradient-card p-4 sm:p-6 rounded-lg border border-border">
