@@ -11,7 +11,7 @@ const montserrat = Montserrat({
 })
     
 export const metadata: Metadata = {
-  title: "Vpc peering",
+  title: "VPC peering",
   description: "Connection two VPCs PROD and DEV by using VPC peering",
     generator: 'Dickson Ankamah',
     applicationName: 'VPC peering with Network Interface ',

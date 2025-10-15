@@ -13,7 +13,7 @@ export function Step3({setSelectedImage}: Step3Props){
     return(
         <ProjectSection id="step-3" title="Step 3: VPC Peering" onImageClick={setSelectedImage}>
             <Paragraph>
-              In this section we are going to a create The Load Balancer which will forward user requests to the instances
+              In this section we are going to a create a peering connection between the two VPCs we created in Step 1 <br />
             </Paragraph>
           
             <Paragraph>
