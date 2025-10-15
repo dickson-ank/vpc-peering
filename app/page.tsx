@@ -20,7 +20,7 @@ const sections = [
   { id: "step-2", title: "Step 2: Routing" },
   { id: "step-3", title: "Step 3: VPC Peering" },
   { id: "step-4", title: "Step 4: Security Groups" },
-  { id: "step-5", title: "Step 6: ENI & EC2 Instances" },
+  { id: "step-5", title: "Step 5: ENI & EC2 Instances" },
   { id: "step-6", title: "Step 6: Testing" },
   { id: "thank-you", title: "Need Help?" },
 ]
