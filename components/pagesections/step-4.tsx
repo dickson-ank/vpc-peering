@@ -35,10 +35,28 @@ export function Step4({setSelectedImage}: Step4Props){
               • Select VPC (prod-vpc) <br />
                For Inbound rules:<br />
               • Add a rule for SSH access from anywhere<br />
+            </Paragraph>
+            <ImageContainer  src="./InstanceSG-create.jpeg" alt="Instance SG screenshot" selectedImage={setSelectedImage} />
+            
+            <Paragraph>
               • Create another one with name "DevBastionSG" <br />
               • Add a description <br />
               • Select VPC (dev-vpc) <br />
-              • Set same ssh inbound rule rom anywhere <br />
+              • Set ssh inbound rule from anywhere <br />
+            </Paragraph>
+
+            <Paragraph>
+              • We also need a security group for the primary network interface of the private instance <br />
+               <span className="block text-sm md:text-sm lg:text-sm sm:text-sm ml-4"> <br />
+                the secondary provided by the ENI will be governed by the ENI security group</span> <br />
+              - We'll create the ENI and attach it to the private instance in the next step <br />
+              • Let's name it "PrivateInstanceSG" <br />
+              • Add a description <br />
+              • Select VPC (prod-vpc) <br />
+              • Set ssh inbound rule from "ProdBastionSG" (search "sg" from the dropdown and choose ProdBationSG ) <br />
+            </Paragraph>
+
+
             <Paragraph>
               For ENI Security Group. <br />
               • We'll name it "ENISG" <br />
