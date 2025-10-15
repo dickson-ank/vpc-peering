@@ -35,9 +35,9 @@ export function Step3({setSelectedImage}: Step3Props){
               <span className="block text-sm md:text-sm lg:text-sm sm:text-sm ml-4">
                 you need to accept the connection request made by prod-vpc to dev-vpc
                  since they're both managed in the same account</span> <br />
-              -Go to Actions and accept the request
+              -Go to "Actions" and accept the request
             </Paragraph>
-            <ImageContainer className="mb-1"src="./alb-listerners-and-routing.jpeg" alt="RDS Subnet Group screenshot" selectedImage={setSelectedImage} />
+            <ImageContainer className="mb-1"src="./accept-peer-request.jpeg" alt="accept peering request" selectedImage={setSelectedImage} />
 
             <Paragraph>
               Now we can go and modify "prod-private-rtb" <br />
