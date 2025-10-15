@@ -12,8 +12,9 @@ export function Step6({setSelectedImage}: Step6Props){
         <ProjectSection id="step-6" title="Step 6: Testing" onImageClick={setSelectedImage}>
             <Paragraph>
               In this final step, we will test the entire setup to ensure that all components are functioning correctly.
-               We will verify that the Load Balancer can respond to requests, 
-               and also test if it can connect to the instances via ssh <br />
+               We will verify that the Bastion in the development environment can ssh into the private instance in the
+                production environment
+                 <br />
             </Paragraph>
 
             <div className="space-y-6 mt-6">
@@ -29,26 +30,18 @@ export function Step6({setSelectedImage}: Step6Props){
               </div>
             </div>
             
-            <Paragraph>
-              <br />
-              Open a browser and run <span className="text-primary"> http://ALB-DNS-NAME/  </span> 
-              and you see the hostname of the instance the Load balancer routed the request to <br />
-              Note that if you run https insted of http it will not work because of the rules in the secuirty <br />
-            </Paragraph>
-            <ImageContainer src="./webpage-served-by-first-host.png" 
-            alt="Webpage served by the web server" selectedImage={setSelectedImage}/>
 
             <Paragraph>
-              Refresh the page a few more times until the Hostname changes to that of the second instance <br />
-            </Paragraph>
-            <ImageContainer src="./webpage-hostname-change.png" 
-            alt="SSH into the Bastion Host instance" selectedImage={setSelectedImage}/> 
-
-            <Paragraph>
-              Confirmed! the Load Balancer is working as expected. <br /> <br />
-              Let's try to ssh into either of the instances through the Load Balancer <br />
+              Upload your Key Pair .pem file to the dev bastion so you can use it to ssh into the prod private instance <br />
+              Run the command below to do that(make sure the key pair file is in the current working directory): <br />
               <span className="bg-muted p-3 sm:p-4 rounded font-mono text-xs sm:text-sm block w-fit">
-                <span className="text-muted-foreground mb-1 block">ssh -i YOUR-KEY-PAIR.pem ec2-user@ALB-DNS-NAME</span>
+                <span className="text-muted-foreground mb-1 block">scp -i YOUR-KEY-PAIR.pem YOUR-KEY-PAIR.pem ec2-user@DEV-BASTION-PUBLIC-IP:~/</span>
+              </span> 
+              Note that the repetition of "YOUR-KEY-PAIR.pem" isn't a mistake<br />
+              <br />
+              Let's try to ssh into the private instance from the dev bastion <br />
+              <span className="bg-muted p-3 sm:p-4 rounded font-mono text-xs sm:text-sm block w-fit">
+                <span className="text-muted-foreground mb-1 block">ssh -i YOUR-KEY-PAIR.pem ec2-user@ENI-PRIVATE-IP</span>
               </span> <br />
             </Paragraph>
             <ImageContainer src="./ssh-into-instance.png" 
