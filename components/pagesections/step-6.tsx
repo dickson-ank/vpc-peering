@@ -33,7 +33,7 @@ export function Step6({setSelectedImage}: Step6Props){
 
             <Paragraph>
               Upload your Key Pair .pem file to the dev bastion so you can use it to ssh into the prod private instance <br />
-              Run the command below to do that(make sure the key pair file is in the current working directory): <br />
+              Run the command below to do that(make sure the key pair file is in the current working directory): <br /> <br />
               <span className="bg-muted p-3 sm:p-4 rounded font-mono text-xs sm:text-sm block w-fit">
                 <span className="text-muted-foreground mb-1 block">scp -i YOUR-KEY-PAIR.pem YOUR-KEY-PAIR.pem ec2-user@DEV-BASTION-PUBLIC-IP:~/</span>
               </span> 

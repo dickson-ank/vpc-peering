@@ -57,7 +57,7 @@ export function Step4({setSelectedImage}: Step4Props){
               • Select VPC (prod-vpc) <br />
               • Set ssh inbound rule from "ProdBastionSG" (search "sg" from the dropdown and choose ProdBationSG ) <br />
             </Paragraph>
-            <ImageContainer  src="./ENISG-create.jpeg" alt=" ENI security group" selectedImage={setSelectedImage} />
+            <ImageContainer  src="./create-InstanceSG.jpeg" alt="Instance SG screenshot" selectedImage={setSelectedImage} />
 
             <Paragraph>
               For ENI Security Group. <br />
@@ -66,7 +66,7 @@ export function Step4({setSelectedImage}: Step4Props){
               • Add inbound rule:<br />
               SSH - Source: Custom <span className="font-mono text-primary">192.168.1.0/24</span> from dev bastion's subnet <br />
             </Paragraph>
-            <ImageContainer  src="./InstanceSG-create.jpeg" alt="Instance SG screenshot" selectedImage={setSelectedImage} />
+            <ImageContainer  src="./ENISG-create.jpeg" alt=" ENI security group" selectedImage={setSelectedImage} />
                         
             
             <Note grid={false}
