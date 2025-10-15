@@ -47,14 +47,16 @@ export function Step4({setSelectedImage}: Step4Props){
 
             <Paragraph>
               • We also need a security group for the primary network interface of the private instance <br />
-               <span className="block text-sm md:text-sm lg:text-sm sm:text-sm ml-4"> <br />
+               <span className="block text-sm md:text-sm lg:text-sm sm:text-sm ml-4">
                 the secondary provided by the ENI will be governed by the ENI security group</span> <br />
-              - We'll create the ENI and attach it to the private instance in the next step <br />
+              <span className="block text-sm md:text-sm lg:text-sm sm:text-sm ml-4">
+                - We'll create the ENI and attach it to the private instance in the next step </span> <br />
               • Let's name it "PrivateInstanceSG" <br />
               • Add a description <br />
               • Select VPC (prod-vpc) <br />
               • Set ssh inbound rule from "ProdBastionSG" (search "sg" from the dropdown and choose ProdBationSG ) <br />
             </Paragraph>
+            <ImageContainer  src="./InstanceSG-create.jpeg" alt="Instance SG screenshot" selectedImage={setSelectedImage} />
 
 
             <Paragraph>
