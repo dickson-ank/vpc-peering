@@ -13,7 +13,7 @@ export function Step2({setSelectedImage}: Step2Props){
     return(
         <ProjectSection id="step-2" title="Step 2: Routing" onImageClick={setSelectedImage}>
             <Paragraph>
-              While still in the VPC Dashboard we'll configure route tables. <br />
+              While still in the VPC Dashboard we'll create and configure three route tables. <br />
               The purpose of routing 
               is to control the traffic flow between the subnets, 
               or between the subnets and the internet
@@ -21,17 +21,14 @@ export function Step2({setSelectedImage}: Step2Props){
 
             <Paragraph>
               What we'll create: <br />
-              • A Route Table for the Public Subnets with routes to an Internet Gateway to enable internet access. <br />
-              • A Route Table for the Private Subnet with a route to a NAT Gateway to ensure they remain isolated from direct internet access. <br />
+              • A Route Table for the Public Subnet in Production with routes to an Internet Gateway to enable internet access. <br />
+              • Another Route Table for the Public Subnet in Development with routes to it's own Internet Gateway to enable internet access. <br />
+              • A Route Table for the Private Subnet with a route to the VPC Peering connection<br />
             </Paragraph>
 
             <Paragraph>
-              Public route table will connect an internet gateway
-              to all public subnets associated with it so they can have access to internet <br />
-              Private route table on the other hand needs a NAT gateway to provide a 
-              restricted route to the internet for the private subnet <br /> <br />
-
-              So let's create the two before we move on<br />
+              That means the route tables have dependencies on Internet Gateways so let's create them first
+              before we move on<br />
               Choose "Internet gateways" from the sidebar and click on 
               <span className="text-primary font-semibold"> Create Internet Gateway</span>.<br />
               • Name it "my-igw" <br />
