@@ -23,7 +23,7 @@ export function Hero(){
             
             <div className="px-10 flex flex-col sm:flex-row gap-4 justify-center">
               <button
-                onClick={() => window.open("https://github.com/dickson-ank/private-instances-attach-load-balancer/blob/main/cloudformation/cloudformation.yaml", "_blank")}
+                onClick={() => window.open("https://github.com/dickson-ank/vpc-peering/blob/main/cloudformation/cloudformation.yaml", "_blank")}
                 className="px-4 py-2 bg-primary text-primary-foreground rounded-lg font-medium hover:bg-primary/90 transition-colors text-sm sm:text-base"
               >
                 View CloudFormation Code
