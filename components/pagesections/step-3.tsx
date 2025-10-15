@@ -49,30 +49,17 @@ export function Step3({setSelectedImage}: Step3Props){
                 10.0.2.0/28 </span> and target the Peering Connection<br />
                 <span className="block text-sm md:text-sm lg:text-sm sm:text-sm ml-4">
                 now both subnets know the route to communicate with each other is through the Peering Connection</span>
-
             </Paragraph>
             <ImageContainer  src="./alb-add-instances.jpeg" alt="RDS Subnet Group screenshot" selectedImage={setSelectedImage} />
-
-            <Paragraph>
-               <span className="text-sm md:text-sm lg:text-sm sm:text-sm block ml-4">- Instance1 and Instance2 if you named them so</span><br /> <br />
-              Leave everything else as-is and 
-              <span className="text-black text-sm font-semibold px-2 py-0 bg-aws rounded-2xl">Create load balancer</span>
-            </Paragraph>
-
-            <Paragraph>
-             It will take a few minutes to set up <br />
-             Once it's done, copy the ALB DNS name and note it somewhere
-            </Paragraph>
-            <ImageContainer className="mb-1"src="./alb-dns-name.jpeg" alt="RDS Engine screenshot" selectedImage={setSelectedImage} />
-            
+            <ImageContainer  src="./alb-add-instances.jpeg" alt="RDS Subnet Group screenshot" selectedImage={setSelectedImage} />
             
             <div className="space-y-6">
               <div className="gradient-card p-4 sm:p-6 rounded-lg border border-border">
-                <h3 className="font-semibold text-foreground mb-4 text-sm sm:text-base">Cloudformation Code for Step 5 - (Load Balancer)</h3>
+                <h3 className="font-semibold text-foreground mb-4 text-sm sm:text-base">Cloudformation Code for Step 3 - (VPC Peering)</h3>
                 <p className="text-xs text-muted-foreground sm:text-xs md:text-xs lg:text-xs mb-2">The part of the Cloudformation code that creates
                  the Load Balancer dicussed above<br/>
                 Uploading only this part to Cloudformation will fail to create unless the VPC and Subnets from Step 1 are already created <br />
-                Append this code to the code from Step 1 through Step 4 to make it work, and ensure the indentations are correct
+                Append this code to the code from Step 1 and step 2 to make it work, and ensure the indentations are correct
                 </p>
                 <div className="bg-muted p-3 sm:p-4 rounded font-mono text-xs sm:text-sm overflow-x-auto mb-4">
                   <ReadMore>

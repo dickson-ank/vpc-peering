@@ -59,11 +59,11 @@ export function Step4({setSelectedImage}: Step4Props){
             
             <div className="space-y-6">
               <div className="gradient-card p-4 sm:p-6 rounded-lg border border-border">
-                <h3 className="font-semibold text-foreground mb-4 text-sm sm:text-base">Cloudformation Code for Step 3 - (Security Groups)</h3>
+                <h3 className="font-semibold text-foreground mb-4 text-sm sm:text-base">Cloudformation Code for Step 4 - (Security Groups)</h3>
                 <p className="text-xs text-muted-foreground sm:text-xs md:text-xs lg:text-xs mb-2">The part of the Cloudformation code that creates
                  the Security Groups as dicussed above<br/>
                 Uploading only this part to Cloudformation will fail to create unless the VPC and Subnets from Step 1 are already created <br />
-                Append this code to the code from Step 1 and Step 2 to make it work, and ensure the indentations are correct
+                Append this code to the code from Step 1 and 2 to make it work, and ensure the indentations are correct
                 </p>
                 <div className="bg-muted p-3 sm:p-4 rounded font-mono text-xs sm:text-sm overflow-x-auto mb-4">
                   <ReadMore>
