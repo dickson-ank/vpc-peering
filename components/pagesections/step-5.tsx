@@ -68,7 +68,7 @@ export function Step5({setSelectedImage}: Step5Props){
          
       <div className="space-y-6">
                     <div className="gradient-card p-4 sm:p-6 rounded-lg border border-border">
-                      <h3 className="font-semibold text-foreground mb-4 text-sm sm:text-base">Cloudformation Code for Step 4 - (EC2 Instances)</h3>
+                      <h3 className="font-semibold text-foreground mb-4 text-sm sm:text-base">Cloudformation Code for Step 5 - (ENI & EC2 Instances)</h3>
                       <p className="text-xs text-muted-foreground sm:text-xs md:text-xs lg:text-xs mb-2">The part of the Cloudformation code that creates
                        the EC2 Instances as dicussed above<br/>
                       Uploading only this part to Cloudformation will fail to create unless you combine with the codes from the previous steps,
