@@ -47,8 +47,8 @@ export default function Home() {
           {/* Conclusion */}
           <ProjectSection id="thank-you" title="Thank You">
             <p className="text-muted-foreground mb-6 text-pretty text-sm sm:text-base">
-             Thank you for following this project on establishing a connection between a load balancer and
-              application backend private instances. I hope you found it informative and helpful.
+             Thank you for following this project on establishing a connection between two VPCs, using VPC Peering. 
+             I hope you found it informative and helpful.
              If you have any questions or need further assistance, feel free to reach out!
             </p>
           </ProjectSection>
