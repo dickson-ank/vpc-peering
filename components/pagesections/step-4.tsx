@@ -57,7 +57,7 @@ export function Step4({setSelectedImage}: Step4Props){
               • Select VPC (prod-vpc) <br />
               • Set ssh inbound rule from "ProdBastionSG" (search "sg" from the dropdown and choose ProdBationSG ) <br />
             </Paragraph>
-            <ImageContainer  src="./PrivateInstanceSG-create.jpeg" alt=" Private Instance SG screenshot" selectedImage={setSelectedImage} />
+            <ImageContainer  src="./ENISG-create.jpeg" alt=" ENI security group" selectedImage={setSelectedImage} />
 
             <Paragraph>
               For ENI Security Group. <br />
