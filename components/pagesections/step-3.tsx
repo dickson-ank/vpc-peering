@@ -25,10 +25,8 @@ export function Step3({setSelectedImage}: Step3Props){
                 required in VPC peering to establish the connection</span>
               • Review and 
               <span className="text-black text-sm font-semibold px-2 py-0 bg-aws rounded-2xl">Create peering connection</span> <br />
-              • Select the VPC <br />
-              • Check the 2 AZs and select the public subnet in each <br />
-              • Choose "LoadBalancerSG" as the security group
             </Paragraph>
+            <ImageContainer className="mb-1"src="./alb-create.jpeg" alt="RDS Subnet Group screenshot" selectedImage={setSelectedImage} />
             <ImageContainer className="mb-1"src="./alb-create.jpeg" alt="RDS Subnet Group screenshot" selectedImage={setSelectedImage} />
 
 
