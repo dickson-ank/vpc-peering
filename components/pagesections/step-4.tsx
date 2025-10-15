@@ -36,7 +36,7 @@ export function Step4({setSelectedImage}: Step4Props){
                For Inbound rules:<br />
               • Add a rule for SSH access from anywhere<br />
             </Paragraph>
-            <ImageContainer  src="./InstanceSG-create.jpeg" alt="Instance SG screenshot" selectedImage={setSelectedImage} />
+            <ImageContainer  src="./ProdBastionSG-create.jpeg" alt="Prod Bastion SG screenshot" selectedImage={setSelectedImage} />
             
             <Paragraph>
               • Create another one with name "DevBastionSG" <br />
@@ -44,6 +44,7 @@ export function Step4({setSelectedImage}: Step4Props){
               • Select VPC (dev-vpc) <br />
               • Set ssh inbound rule from anywhere <br />
             </Paragraph>
+            <ImageContainer  src="./DevBastionSG-create.jpeg" alt="Dev Bastion SG screenshot" selectedImage={setSelectedImage} />
 
             <Paragraph>
               • We also need a security group for the private instance <br />
