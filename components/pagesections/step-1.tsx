@@ -12,7 +12,7 @@ export function Step1({setSelectedImage}: Step1Props){
     return(
         <ProjectSection id="step-1" title="Step 1: Creating VPC and Subnets" onImageClick={setSelectedImage}>
             <Paragraph>
-              We will first create an two isoloated networks for the environments using a VPC
+              We will first create two isoloated networks for the environments using a VPC
               <span className="block text-sm md:text-sm lg:text-sm sm:text-sm ml-4">
                 Two public and one private
               </span>
@@ -53,11 +53,11 @@ export function Step1({setSelectedImage}: Step1Props){
                <span className="block text-sm md:text-sm lg:text-sm sm:text-sm ml-4">
                 becasue the second subnet must be in a different AZ</span>
               • Set the IPv4 subnet CIDR block to <span className="font-mono text-primary">10.0.1.0/28</span> <br />
-              • Review and click <span className="text-black text-sm font-semibold px-2 py-0 bg-aws rounded-2xl">Create Subnet</span> <br />
+              • Review and <span className="text-black text-sm font-semibold px-2 py-0 bg-aws rounded-2xl">Create Subnet</span> <br />
             </Paragraph>
             <ImageContainer className="mb-1"src="./create-public-subnet-1.jpeg" alt="Subnet create screenshot" selectedImage={setSelectedImage} />
             <Paragraph>
-              We will follow similar procedure to create the private subnet <br />
+              We will follow similar procedure to create the private subnet also prod-vpc<br />
               • Name: prod-private-subnet <br />
               • Different AZ from prod-public-subnet <br />
               • CIDR: <span className="font-mono text-primary">10.0.2.0/28</span>
@@ -66,7 +66,7 @@ export function Step1({setSelectedImage}: Step1Props){
             
             <Paragraph>
               And then create the DEV public subnet <br />
-              • Must be in the dev-vpc
+              • Must be in the dev-vpc <br />
               • Name: dev-public-subnet<br />
               • Same AZ as prod-public-subnet <br />
               • CIDR: <span className="font-mono text-primary">192.168.1.0/24</span>
