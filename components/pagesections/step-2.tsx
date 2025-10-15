@@ -86,11 +86,10 @@ export function Step2({setSelectedImage}: Step2Props){
 
               Dev Public Route Table: <br />
               • Name: "dev-public-rtb" and associate it with the dev-vpc. <br />
-              • Set a route with destination <span className="font-mono text-primary">0.0.0.0/0</span> and target to the development Internet Gateway("dev-igw")<br />  <br />
-              <span className="block text-sm md:text-sm lg:text-sm sm:text-sm ml-4">
-                we'll come back to add a route to the VPC Peering Connection later</span>
-              • In the "Subnet associations" tab, associate the prod private subnet
-              ("prod-private-subnet) with this route table.<br />
+              • Set a route with destination <span className="font-mono text-primary">0.0.0.0/0</span> and target to 
+              the development Internet Gateway("dev-igw")<br />  <br />
+              • In the "Subnet associations" tab, associate the dev public subnet
+              ("dev-public-subnet) with this route table.<br />
             </Paragraph>
             
             <Paragraph>
