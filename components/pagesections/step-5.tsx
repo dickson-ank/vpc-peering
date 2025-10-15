@@ -26,33 +26,39 @@ export function Step5({setSelectedImage}: Step5Props){
             <span className="text-black text-sm font-semibold px-2 py-0 bg-aws rounded-2xl">
                 Create network interface</span>
           </Paragraph>
+          <ImageContainer src="./ec2-instance-type.jpeg" alt="EC2 Instance Type Selection" selectedImage={setSelectedImage} />
+          <ImageContainer src="./ec2-instance-type.jpeg" alt="EC2 Instance Type Selection" selectedImage={setSelectedImage} />
+
 
           <Paragraph>
-            • Choose an Instance Type. Select "t2.micro" (free tier). <br/>
+            Now create the private instance first:
+            • Go "Instances" and create a new instance. <br/>
+            • We'll name it "PrivateInstance". <br/>
+            • Leave the next sections as default go to Key Pair <br/>
             • Select a key pair for SSH access. If you don't have one, 
             create a new key pair and download the ".pem" file <br/>
             <span className="text-sm md:text-sm lg:text-sm sm:text-sm block ml-4">will be required to connect to the instances 
-              later when we test the deployment.</span>
+              later when we test ssh access.</span>
           </Paragraph>
-          <ImageContainer src="./ec2-instance-type.jpeg" alt="EC2 Instance Type Selection" selectedImage={setSelectedImage} />
 
           <Paragraph> 
             Edit Network Settings: <br/>
-            - Select the VPC  (my-vpc) <br/>
-            - Select the the subnet (private-subnet) <br/>
+            - Select the VPC  (prod-vpc) <br/>
+            - Select the the subnet (prod-private-subnet) <br/>
             - Disable Auto-assign Public IP <br/>
-            <span className="text-sm md:text-sm lg:text-sm sm:text-sm block ml-4">the instances are private and don't  
+            <span className="text-sm md:text-sm lg:text-sm sm:text-sm block ml-4">the instance is private and doesn't
               require a public IP.</span>
             - Under Security Group, "Select an existing security group" 
-            and select the Instance security group (InstanceSG) <br/>
+            and select the  "PrivateInstanceSG" security <br/> <br />
          </Paragraph>
           <ImageContainer src="./ec2-network-settings.jpeg" alt="EC2 Network Settings" selectedImage={setSelectedImage} />
 
           <Paragraph>
-            • Leave everything else untouched andreview <br />  
+            • Leave everything else untouched and review <br />  
               <span className="text-black text-sm font-semibold px-2 py-0 bg-aws rounded-2xl">
                 Launch instance</span> when done.
           </Paragraph>
+
           <Paragraph>
             Once the instances finish creating, we'll go to the 
             dashboard and assign them names so we can easily identify them later <br />
