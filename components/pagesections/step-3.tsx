@@ -31,14 +31,25 @@ export function Step3({setSelectedImage}: Step3Props){
 
 
             <Paragraph>
-              Inside listeners and routing: <br />
-              -Set an HTTP listener on port 80 <br />
-              -Set another listener for SSH (tcp on port 22) <br />
+              You'll see a alert at the top of the page asking to accept the connection request <br />
+              <span className="block text-sm md:text-sm lg:text-sm sm:text-sm ml-4">
+                you need to accept the connection request made by prod-vpc to dev-vpc
+                 since they're both managed in the same account</span> <br />
+              -Go to Actions and accept the request
             </Paragraph>
             <ImageContainer className="mb-1"src="./alb-listerners-and-routing.jpeg" alt="RDS Subnet Group screenshot" selectedImage={setSelectedImage} />
 
             <Paragraph>
-              Add instances <br />
+              Now we can go and modify "prod-private-rtb" <br />
+              -You can select "Modify route tables now" from the green popup or go to the Route tables from the sidebar <br />
+              Set a new route to the dev-public-subnet CIDR <span className="font-mono text-primary">
+                192.168.1.0/24 </span> and target the Peering Connection<br />
+              - Update "dev-public-rtb" with a route to the prod-private-subnet CIDR 
+              <span className="font-mono text-primary">
+                10.0.2.0/28 </span> and target the Peering Connection<br />
+                <span className="block text-sm md:text-sm lg:text-sm sm:text-sm ml-4">
+                now both subnets know the route to communicate with each other is through the Peering Connection</span>
+
             </Paragraph>
             <ImageContainer  src="./alb-add-instances.jpeg" alt="RDS Subnet Group screenshot" selectedImage={setSelectedImage} />
 
