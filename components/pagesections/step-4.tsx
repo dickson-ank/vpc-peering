@@ -148,10 +148,10 @@ export function Step4({setSelectedImage}: Step4Props){
         - IpProtocol: tcp
           FromPort: 22
           ToPort: 22
-          SourceSecurityGroupId: 0.0.0.0/0
+          SourceSecurityGroupId: !Ref ProdBastionSecurityGroup
       Tags:
         - Key: Name
-          Value: DevBastionSG
+          Value: PrivateInstanceSG
 
               `}
                     </SyntaxHighlighter>
