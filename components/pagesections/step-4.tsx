@@ -118,16 +118,40 @@ export function Step4({setSelectedImage}: Step4Props){
       VpcId: !Ref VPC
       SecurityGroupIngress:
         - IpProtocol: tcp
-          FromPort: 80
-          ToPort: 80
-          SourceSecurityGroupId: !Ref LoadBalancerSecurityGroup 
+          FromPort: 22
+          ToPort: 22
+          SourceSecurityGroupId: 0.0.0.0/0
+      Tags:
+        - Key: Name
+          Value: DevBastionSG
+
+  ProdBastionSecurityGroup:
+    Type: AWS::EC2::SecurityGroup
+    Properties:
+      GroupDescription: Enable SSH access from anywhere
+      VpcId: !Ref VPC
+      SecurityGroupIngress:
         - IpProtocol: tcp
           FromPort: 22
           ToPort: 22
-          SourceSecurityGroupId: !Ref LoadBalancerSecurityGroup
+          SourceSecurityGroupId: 0.0.0.0/0
       Tags:
         - Key: Name
-          Value: InstanceSG
+          Value: ProdBastionSG
+
+  PrivateInstanceSecurityGroup:
+    Type: AWS::EC2::SecurityGroup
+    Properties:
+      GroupDescription: Enable SSH access from prod bastion security group
+      VpcId: !Ref VPC
+      SecurityGroupIngress:
+        - IpProtocol: tcp
+          FromPort: 22
+          ToPort: 22
+          SourceSecurityGroupId: 0.0.0.0/0
+      Tags:
+        - Key: Name
+          Value: DevBastionSG
 
               `}
                     </SyntaxHighlighter>
