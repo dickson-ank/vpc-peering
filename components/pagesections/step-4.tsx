@@ -97,28 +97,24 @@ export function Step4({setSelectedImage}: Step4Props){
 #    ....
 # Security groups
 
-  LoadBalancerSecurityGroup:
+  ENISecurityGroup:
     Type: AWS::EC2::SecurityGroup
     Properties:
-      GroupDescription: Enable SSH and HTTP access from anywhere
+      GroupDescription: Enable SSH from dev bastion
       VpcId: !Ref VPC
       SecurityGroupIngress:
         - IpProtocol: tcp
           FromPort: 22
           ToPort: 22
-          CidrIp: 0.0.0.0/0
-        - IpProtocol: tcp
-          FromPort: 80
-          ToPort: 80
-          CidrIp: 0.0.0.0/0
+          CidrIp: 192.168.1.0/24
       Tags:
         - Key: Name
-          Value: LoadBalancerSG
+          Value: ENISG
 
-  InstanceSecurityGroup:
+  DevBastionSecurityGroup:
     Type: AWS::EC2::SecurityGroup
     Properties:
-      GroupDescription: Enable HTTP and SSH access from Load Balancer Security Group
+      GroupDescription: Enable SSH access from anywhere
       VpcId: !Ref VPC
       SecurityGroupIngress:
         - IpProtocol: tcp
